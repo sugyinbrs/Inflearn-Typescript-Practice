@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noImplicitAny": true
+  }
+}
+// Javascript -> Typescript 변환 시 어떤 속성으로 변환하는 지에 대한 파일
+// "checkJs" 는 @ts-check와 같은 역할
+// "noImplicitAny" 는 모든 type에 대해 any 라는 type 넣는다는 의미
+// 더 자세한 사항 및 속성은 공식문서 참고
