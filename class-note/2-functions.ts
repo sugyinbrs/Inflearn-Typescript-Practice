@@ -13,3 +13,4 @@ function add(): number {
 function totalSum(a: number, b: number): number {
   return a + b;
 }
+totalSum(10, 20, 30, 40, 50); // TS에서는 JS와 다르게 지정한 파라미터 인자의 개수 이상이 들어오면 "Expected 2 arguments, but got 5" 라고 알려주는 특성이 있음
