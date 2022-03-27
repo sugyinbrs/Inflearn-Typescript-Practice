@@ -14,3 +14,10 @@ function totalSum(a: number, b: number): number {
   return a + b;
 }
 totalSum(10, 20, 30, 40, 50); // TS에서는 JS와 다르게 지정한 파라미터 인자의 개수 이상이 들어오면 "Expected 2 arguments, but got 5" 라고 알려주는 특성이 있음
+
+// 함수의 옵셔널 파라미터 (특정 파라미터를 선택적으로 사용하고 싶을 때는 물음표(?) 를 사용)
+function log(a: string, b?: string) {
+
+}
+log('hello world')
+log('hello ts', 'abc')
