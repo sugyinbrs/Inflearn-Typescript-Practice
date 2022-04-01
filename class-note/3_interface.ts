@@ -41,3 +41,14 @@ interface StringArray {
   [index: number]: string;
 }
 var arr: StringArray = ['a', 'b', 'c'];
+
+// 딕셔너리 패턴
+interface StringRegexDictionary {
+  [key: string]: RegExp;
+}
+
+var obj: StringRegexDictionary = {
+  cssFile: /\.css$/,
+  jsFile: /\.js$/,
+}
+// obj['cssFile'] = 'a' // RegExp 이 아닌 String 형태로 값을 할당하였기에 오류
