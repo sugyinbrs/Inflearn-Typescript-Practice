@@ -52,3 +52,19 @@ var obj: StringRegexDictionary = {
   jsFile: /\.js$/,
 }
 // obj['cssFile'] = 'a' // RegExp 이 아닌 String 형태로 값을 할당하였기에 오류
+
+// 인터페이스 확장
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Developer extends Person {
+  language: string;
+}
+
+var sugy: Developer = {
+  language: 'ts',
+  name: '수',
+  age: 100
+}
