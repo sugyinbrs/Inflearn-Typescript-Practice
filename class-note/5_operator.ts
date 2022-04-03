@@ -20,3 +20,27 @@ logMessage('hello');
 logMessage(100);
 
 // Union Type -> 위와 같이 하나의 타입 이상을 사용할 수 있게 하는 타입
+
+interface Developer {
+  name: string;
+  skill: string;
+}
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+function askSomeone(someone: Developer | Person) {
+  someone.name
+  someone.skill
+  someone.age  
+}
+/*
+someone 을 함수 내부에서 선언하면 접근할 수 있는 속성(메서드) 프리뷰로 공통 속성인 name 만 뜨는 것을 확인 할 수 있음
+
+기존에 배운 대로라면 Developer 와 Person 에서 제공하는 모든 속성(name, skill, age) 에 접근할 수 있으리라 생각할 수 있음
+
+skill 이나 age 는 type safe 하지 않은 속성이라 에러가 날 수 있다고 인식,
+항상 인터페이스처럼 여러가지 Union Type 공통된, 보장된 속성에 대해서만 제공함
+*/
