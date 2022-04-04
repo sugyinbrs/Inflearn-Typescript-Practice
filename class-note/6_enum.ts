@@ -15,3 +15,23 @@ console.log(myShoes); // '나이키'가 출력됨
 
 var yourShoes = Shoes.Adidas;
 console.log(yourShoes); // '아디다스'가 출력됨
+
+// 예제
+enum Answer {
+  Yes = "Y",
+  No = "N",
+}
+
+function askQuestion(answer: Answer) {
+  if (answer === Answer.Yes) {
+    console.log("정답입니다");
+  }
+  if (answer === Answer.No) {
+    console.log("오답입니다");
+  }
+};
+askQuestion(Answer.Yes); // 이넘에서 제공하는 데이터만 작성할 수 있게 됨
+
+// askQuestion("예스"); // 오류
+// askQuestion("y"); // 오류
+// askQuestion("Yes"); // 오류
