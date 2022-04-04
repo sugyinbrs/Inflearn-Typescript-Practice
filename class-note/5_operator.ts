@@ -32,10 +32,14 @@ interface Person {
 }
 
 // function askSomeone(someone: Developer | Person) {
-//   someone.name
-//   someone.skill
-//   someone.age  
+//   // someone.name
+//   // someone.skill
+//   // someone.age  
 // }
+// askSomeone({ name: '디벨로퍼', skill: '웹 개발' });
+// askSomeone({ name: '수', age: 100 })
+// Developer 의 데이터를 주거나 Person 의 데이터를 줄 수 있음
+// 상대적으로 유니온 타입이 인터섹션 타입보다 실무에서 많이 사용됨
 
 /*
 someone 을 함수 내부에서 선언하면 접근할 수 있는 속성(메서드) 프리뷰로 공통 속성인 name 만 뜨는 것을 확인 할 수 있음
@@ -51,6 +55,7 @@ function askSomeone(someone: Developer & Person) {
   someone.skill
   someone.age
 }
+askSomeone({ name: '디벨로퍼', skill: '웹 개발', age: 100 });
 
 /*
 someone 을 함수 내부에서 선언하면 접근할 수 있는 속성(메서드) 프리뷰로 모든 속성(name, skill, age)이 뜨는 것을 확인 할 수 있음
