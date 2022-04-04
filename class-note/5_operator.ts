@@ -31,11 +31,12 @@ interface Person {
   age: number;
 }
 
-function askSomeone(someone: Developer | Person) {
-  someone.name
-  someone.skill
-  someone.age  
-}
+// function askSomeone(someone: Developer | Person) {
+//   someone.name
+//   someone.skill
+//   someone.age  
+// }
+
 /*
 someone 을 함수 내부에서 선언하면 접근할 수 있는 속성(메서드) 프리뷰로 공통 속성인 name 만 뜨는 것을 확인 할 수 있음
 
@@ -44,3 +45,18 @@ someone 을 함수 내부에서 선언하면 접근할 수 있는 속성(메서�
 skill 이나 age 는 type safe 하지 않은 속성이라 에러가 날 수 있다고 인식,
 항상 인터페이스처럼 여러가지 Union Type 공통된, 보장된 속성에 대해서만 제공함
 */
+
+function askSomeone(someone: Developer & Person) {
+  someone.name
+  someone.skill
+  someone.age
+}
+
+/*
+someone 을 함수 내부에서 선언하면 접근할 수 있는 속성(메서드) 프리뷰로 모든 속성(name, skill, age)이 뜨는 것을 확인 할 수 있음
+
+AND(&) 연산자를 사용한 인터섹션 타입은 Developer 와 Person 에서 제공하는 모든 속성(name, skill, age)에 접근할 수 있음
+*/
+
+// var sean: string | number | boolean;
+// var nat: string & number & boolean; // 모든 type 이 만족하는 하나의 type 을 의미하는 것이 인터섹션 타입
