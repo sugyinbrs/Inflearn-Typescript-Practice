@@ -33,14 +33,14 @@
 // logText(true);
 // 위와 같이 다른 타입을 받기 위하여 같은 함수(중복되는 코드를) 반복해서 사용한다면 가독성, 유지보수 관점에서 좋지 않음
 
-function logText(text: string | number) {
-  console.log(text);
-  return text;
-}
-logText('a');
-const myText = logText('a');
-myText.split('');
-logText(10);
+// function logText(text: string | number) {
+//   console.log(text);
+//   return text;
+// }
+// logText('a');
+// const myText = logText('a');
+// myText.split('');
+// logText(10);
 
 // 위와 같은 상황에서는 logText 함수의 반환 값 역시 string 또는 number 가 됨
 /*
@@ -53,4 +53,20 @@ myText.split(''); 역시 split 에 에러 메세지 (Property 'split' does not e
 
 결론
 - input 에 대한 type 은 해결 되었지만 반환값의 type 은 해결 되지 않아 문제가 생김
+*/
+
+function logText<T>(text: T): T {
+  console.log(text);
+  return text;
+}
+
+const str = logText<string>('alphabet');
+str.split('');
+
+const login = logText<boolean>(true);
+login.valueOf;
+
+/* 제네릭 장점
+- 실제 함수를 정의할 때 type 을 비우고 호출하는 시점에 type 을 정의함
+- type 을 추론하여 최종 반환값까지 처리할 수 있음
 */
