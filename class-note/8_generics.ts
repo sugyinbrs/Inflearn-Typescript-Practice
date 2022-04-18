@@ -60,8 +60,8 @@ function logText<T>(text: T): T {
   return text;
 }
 
-const str = logText<string>('alphabet');
-str.split('');
+const str = logText<string>("alphabet");
+str.split("");
 
 const login = logText<boolean>(true);
 login.valueOf;
@@ -70,3 +70,17 @@ login.valueOf;
 - 실제 함수를 정의할 때 type 을 비우고 호출하는 시점에 type 을 정의함
 - type 을 추론하여 최종 반환값까지 처리할 수 있음
 */
+
+// 인터페이스에 제네릭을 선언하는 방법
+// interface Dropdown {
+//   value: string;
+//   selected: boolean;
+// }
+
+// const obj: Dropdown = { value: 'hi', selected: true };
+
+interface Dropdown<T> {
+  value: T;
+  selected: boolean;
+}
+const obj: Dropdown<string> = { value: "hi", selected: false };
