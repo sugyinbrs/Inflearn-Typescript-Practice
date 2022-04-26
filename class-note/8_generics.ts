@@ -84,3 +84,13 @@ interface Dropdown<T> {
   selected: boolean;
 }
 const obj: Dropdown<string> = { value: "hi", selected: false };
+
+// 제네릭의 타입 제한
+function logTextLength<T>(text: T): T {
+  console.log(text.length);
+  // length 에 에러 -> type 'T' 에 length 속성이 없음
+  // 타입스크립트 입장에서는 logTextLength 함수에 어떤 값이 들어올 지 예측 X
+  // 타입스크립트에 length 에 대한 힌트를 주기 위해 제네릭에 추가로 타입 힌트(예 - T[])를 줄 수 있다는 것이 요지
+  return text;
+}
+logTextLength("hi");
