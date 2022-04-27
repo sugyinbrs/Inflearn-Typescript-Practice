@@ -86,11 +86,25 @@ interface Dropdown<T> {
 const obj: Dropdown<string> = { value: "hi", selected: false };
 
 // 제네릭의 타입 제한
-function logTextLength<T>(text: T): T {
-  console.log(text.length);
-  // length 에 에러 -> type 'T' 에 length 속성이 없음
-  // 타입스크립트 입장에서는 logTextLength 함수에 어떤 값이 들어올 지 예측 X
-  // 타입스크립트에 length 에 대한 힌트를 주기 위해 제네릭에 추가로 타입 힌트(예 - T[])를 줄 수 있다는 것이 요지
+// function logTextLength<T>(text: T): T {
+//   console.log(text.length);
+//   length 에 에러 -> type 'T' 에 length 속성이 없음
+//   타입스크립트 입장에서는 logTextLength 함수에 어떤 값이 들어올 지 예측 X
+//   타입스크립트에 length 에 대한 힌트를 주기 위해 제네릭에 추가로 타입 힌트(예 - T[])를 줄 수 있다는 것이 요지
+//   return text;
+// }
+// logTextLength("hi");
+
+// 제네릭의 타입 제한 2 - 정의된 타입 이용하기
+interface LengthType {
+  length: number;
+}
+function logTextLength<T extends LengthType>(text: T): T {
+  text.length;
+  // 제네릭 T 에 이미 정의된 interface 인 LengthType을 extends 해줌, length 가 number 라는 타입이 있는 상태에서 T에 추가로 정의해줄 수 있음을 의미
+  // length 에 에러가 나지 않게 됨
   return text;
 }
-logTextLength("hi");
+logTextLength("hi"); // 문자열은 기본적으로 length 라는 속성 (메서드)가 제공됨
+logTextLength(10); // 숫자에는 기본적으로 length 라는 속성 (메서드)가 제공되지 않기에 에러가 뜸
+logTextLength({ length: 10 }); // 객체에 length 라는 속성이 들어가면 정상적으로 에러 없이 출력됨
