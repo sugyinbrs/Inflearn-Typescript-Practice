@@ -108,3 +108,22 @@ function logTextLength<T extends LengthType>(text: T): T {
 logTextLength("hi"); // 문자열은 기본적으로 length 라는 속성 (메서드)가 제공됨
 logTextLength(10); // 숫자에는 기본적으로 length 라는 속성 (메서드)가 제공되지 않기에 에러가 뜸
 logTextLength({ length: 10 }); // 객체에 length 라는 속성이 들어가면 정상적으로 에러 없이 출력됨
+
+// 제네릭 타입 제한 3 - keyof
+interface ShoppingItem {
+  name: string;
+  size: number;
+  stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T):T {
+  return itemOption;
+}
+
+getShoppingItemOption('name');
+
+/*
+ShoppingItem 있는 key 들 중 1가지가 제네릭(타입)이 될 것이라는 의미
+getShoppingItemOption 함수의 인자(파라미터)로 name, size, stock 중 1가지가 들어가는 것으로 정의
+keyof 로 제네릭의 타입 범위를 제한한다고 볼 수 있음
+*/
